@@ -23,7 +23,7 @@ class ProdutosController extends Controller {
 			$produto = new Produtos();
 			$produto->add($codigo_produto,$produto_nome,$preco_produto);
 						
-			$this->loadTemplate('home');
+			$this->loadTemplate('produtos_add');
 		
 	}
 

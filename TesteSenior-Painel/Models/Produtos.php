@@ -14,6 +14,15 @@ class Produtos extends Model {
 		$sql->execute();
 	}
 
+	public function totalvenda(){
+		$array = array();
+		$sql = $this->db->prepare("SELECT SUM(total_venda) FROM documento WHERE status_venda =1");
+		$sql->execute();
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetch(\PDO::FETCH_ASSOC);	
+		}	
+			return $array;
+	}
 }
 
 

@@ -2,7 +2,7 @@
 namespace Controllers;
 
 use \Core\Controller;
-use \Models\Users;
+use \Models\Produtos;
 
 class HomeController extends Controller {
 
@@ -13,7 +13,11 @@ class HomeController extends Controller {
 	}
 
 	public function index() {
-		$this->loadTemplate('home');
+
+		$array = array();
+		$venda = new Produtos;
+		$array['venda'] = $venda->totalvenda();
+		$this->loadTemplate('home', $array);
 	}
 
 }
